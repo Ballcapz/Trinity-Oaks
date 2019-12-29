@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -18,6 +19,7 @@ class BlogPostContentfulTemplate extends React.Component {
           title={post.title}
           description={post.subtitle}
         />
+        <Img fluid={post.image.fluid} />
         <article>
           <header>
             <h1
@@ -94,6 +96,11 @@ export const pageQuery = graphql`
       title
       author
       subtitle
+      image {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
       content {
         childContentfulRichText {
           html
