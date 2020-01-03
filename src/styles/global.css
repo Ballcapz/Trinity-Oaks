@@ -1,0 +1,81 @@
+.hero {
+    height: 100vh;
+    width: 100vw;
+    
+    display: grid;
+    
+    grid-template-columns: 25% 25% 24% 25% 1%;
+    grid-template-rows: repeat(12, 1fr);
+    grid-gap: 1em;
+  }
+  
+  h1 {
+    grid-area: 1 / 1 / 2 / 3;
+    display: inline-block;
+  }
+  
+  @media only screen and (min-width: 1825px) {
+      h1 {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+
+      .blog-tile {
+        grid-area: 4 / 1 / 11 / 3 !important;
+      }
+      .store-tile {
+        grid-area: 4 / 3 / 11 / 5 !important;
+      }
+  }
+  
+  /*  row col row col*/
+  
+  .social-links {
+    grid-area: 1 / 4 / 2 / 5;
+    text-align: center;
+    margin-top: 2em;
+    font-size: 1em;
+  }
+  
+  .blog-tile {
+    background-color: black;
+    color: white;
+    grid-area: 4 / 1 / 9 / 3;
+    max-width: 90%;
+    margin-left: 5%;
+    font-size: 2em;
+    padding: 1em;
+
+    position: relative;
+  }
+
+  .blog-tile span {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+  }
+
+  
+  .store-tile {
+    background-color: black;
+    color: white;
+    grid-area: 4 / 3 / 9 / 5;
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 10%;
+    font-size: 2em;
+    padding: 1em;
+
+    position: relative;
+  }
+
+  .store-tile img {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+  }
+
+  .store-tile span {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }

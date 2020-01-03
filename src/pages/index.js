@@ -1,66 +1,36 @@
+import { graphql, Link } from "gatsby"
 import React from "react"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
-import styled from "styled-components"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Container from "../components/landingContainer"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
-
-const Post = styled.div`
-  display: flex;
-`
-
-const PostImage = styled.div`
-  flex: 25%;
-  margin-right: 1rem;
-`
-
-const PostText = styled.div`
-  flex: 75%;
-
-`
 
 
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allContentfulPost.edges
+    // const { data } = this.props
+    // const siteTitle = data.site.siteMetadata.title
+    // const posts = data.allContentfulPost.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.title || node.slug
-          return (
-            <Post key={node.slug}>
-              <PostImage>
-                <Img fluiid={node.image.fluid} />
-              </PostImage>
-              <PostText>
-                <header>
-                  <h3
-                    style={{
-                      marginBottom: rhythm(1 / 4),
-                    }}
-                  >
-                    <Link style={{ boxShadow: `none` }} to={node.slug}>
-                      {title}
-                    </Link>
-                  </h3>
-                </header>
-                <section>
-                  <p> {node.subtitle} </p>
-                </section>
-              </PostText>
-            </Post>
-          )
-        })}
-      </Layout>
+      <Container>
+        <SEO title="Trinity Oaks Farms" />
+        <section className="hero">
+          <h1>Trinity Oaks Farms</h1>
+
+          <div className="social-links">T F L Y</div>
+
+          <div className="blog-tile">
+            <div className="recent-post">MOST RECENT POST (and link)</div>
+            <span>Checkout our <Link to="/blog/">blog</Link>!</span>
+          </div>
+
+          <div className="store-tile">
+            <img src="../../content/assets/barn.jpg" alt="Yummy eggs picture " />
+            <span>Farm Fresh</span>
+          </div>
+        </section>
+
+      </Container>
     )
   }
 }
